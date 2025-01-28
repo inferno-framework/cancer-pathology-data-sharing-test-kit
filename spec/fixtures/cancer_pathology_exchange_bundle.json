@@ -1,0 +1,554 @@
+{
+    "resourceType" : "Bundle",
+    "id" : "us-pathology-exchange-bundle-example",
+    "meta" : {
+      "versionId" : "7",
+      "lastUpdated" : "2022-06-14T19:57:02.095+00:00",
+      "source" : "#rQ7uOUfOsjo8v8rx",
+      "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-exchange-bundle"]
+    },
+    "type" : "transaction",
+    "timestamp" : "2022-03-22T18:05:57.689+00:00",
+    "entry" : [{
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Patient/JoelAlexPatient",
+      "resource" : {
+        "resourceType" : "Patient",
+        "id" : "JoelAlexPatient",
+        "meta" : {
+          "versionId" : "14",
+          "lastUpdated" : "2022-04-20T20:59:26.702+00:00",
+          "source" : "#04Lv9tAes64xiLln"
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                        <div class=\"hapiHeaderText\">\n                            Alex\n                            \n                            \n                            <b>Joel </b>\n                        </div>\n                        <table class=\"hapiPropertyTable\">\n                            <tbody>\n                                <tr>\n                                    <td>Identifier</td>\n                                    <td>JoelAlexPatient</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>"
+        },
+        "identifier" : [{
+          "system" : "urn:system",
+          "value" : "JoelAlexPatient"
+        }],
+        "name" : [{
+          "family" : "Joel",
+          "given" : ["Alex"]
+        }],
+        "gender" : "male",
+        "link" : [{
+          "other" : {
+            "reference" : "RelatedPerson/pathology-next-of-kin"
+          },
+          "type" : "seealso"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Patient/JoelAlexPatient"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Encounter/uspath-specimen-collection-example",
+      "resource" : {
+        "resourceType" : "Encounter",
+        "id" : "uspath-specimen-collection-example",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2022-04-17T13:46:33.150+00:00",
+          "source" : "#crGIzXgvY3vm6ixN",
+          "profile" : ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Encounter_uspath-specimen-collection-example\"> </a><p><b>Generated Narrative: Encounter</b><a name=\"uspath-specimen-collection-example\"> </a><a name=\"hcuspath-specimen-collection-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Encounter &quot;uspath-specimen-collection-example&quot; Version &quot;1&quot; Updated &quot;2022-04-17 13:46:33+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #crGIzXgvY3vm6ixN!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-encounter.html\">US Core Encounter Profile</a></p></div><p><b>identifier</b>: <code>http://example.com/fhir/encounters</code>/123</p><p><b>status</b>: finished</p><p><b>class</b>: inpatient encounter (Details: http://terminology.hl7.org/CodeSystem/v3-ActCode code IMP = 'inpatient encounter', stated as 'inpatient encounter')</p><p><b>type</b>: Pathology consultation, comprehensive, records and specimen with report <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#726007)</span></p><p><b>subject</b>: See on this page: Patient/JoelAlexPatient</p><blockquote><p><b>participant</b></p><p><b>individual</b>: <a href=\"Practitioner-oncologist-example.html\">Practitioner/oncologist-example</a> &quot; OWL&quot;</p></blockquote><blockquote><p><b>participant</b></p><p><b>individual</b>: See on this page: Practitioner/pathologist-example</p></blockquote></div>"
+        },
+        "identifier" : [{
+          "system" : "http://example.com/fhir/encounters",
+          "value" : "123"
+        }],
+        "status" : "finished",
+        "class" : {
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code" : "IMP",
+          "display" : "inpatient encounter"
+        },
+        "type" : [{
+          "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "726007",
+            "display" : "Pathology consultation, comprehensive, records and specimen with report"
+          }]
+        }],
+        "subject" : {
+          "reference" : "Patient/JoelAlexPatient"
+        },
+        "participant" : [{
+          "individual" : {
+            "reference" : "Practitioner/oncologist-example"
+          }
+        },
+        {
+          "individual" : {
+            "reference" : "Practitioner/pathologist-example"
+          }
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Encounter/uspath-specimen-collection-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/DiagnosticReport/pathology-diagnostic-report",
+      "resource" : {
+        "resourceType" : "DiagnosticReport",
+        "id" : "pathology-diagnostic-report",
+        "meta" : {
+          "versionId" : "17",
+          "lastUpdated" : "2022-06-14T20:17:38.793+00:00",
+          "source" : "#ZSUAapkH140ktNGJ",
+          "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-diagnostic-report"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                        <div class=\"hapiHeaderText\"> Pathology Synoptic report </div>\n                        <table class=\"hapiPropertyTable\">\n                            <tbody>\n                                <tr>\n                                    <td>Status</td>\n                                    <td>FINAL</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>"
+        },
+        "identifier" : [{
+          "system" : "https://example.org",
+          "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1"
+        }],
+        "status" : "final",
+        "category" : [{
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "LP7839-6",
+            "display" : "Pathology"
+          }]
+        }],
+        "code" : {
+          "coding" : [{
+            "system" : "http://loinc.org",
+            "code" : "60568-3",
+            "display" : "Pathology Synoptic report"
+          }]
+        },
+        "subject" : {
+          "reference" : "Patient/JoelAlexPatient",
+          "display" : "Alex Joel"
+        },
+        "encounter" : {
+          "reference" : "Encounter/uspath-specimen-collection-example"
+        },
+        "effectiveDateTime" : "2021-01-01T21:39:30.000Z",
+        "performer" : [{
+          "reference" : "PractitionerRole/practitionerrole-uspath-pathologist-example"
+        }],
+        "resultsInterpreter" : [{
+          "reference" : "PractitionerRole/practitionerrole-uspath-pathologist-example"
+        }],
+        "specimen" : [{
+          "reference" : "Specimen/adrenal-example"
+        }],
+        "result" : [{
+          "reference" : "Observation/observation-tumor-site",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2118.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-procedure-adrenalectomy",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#42554.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-specimen-laterality",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#52756.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-histologic-type",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#59852.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-histologic-grade",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#49275.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-histologic-grade",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2129.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-tumor-weight",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#40496.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-tumor-extension",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.51265.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-tumor-invasion",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.53526.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-regional-lymph-nodes",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.1867.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-TNM-descriptors",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.20880.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-primary-tumor",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2137.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-regional-lymph-nodes",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2143.100004300"
+          }
+        },
+        {
+          "reference" : "Observation/observation-distant-metastasis",
+          "identifier" : {
+            "system" : "https://example.org",
+            "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2149.100004300"
+          }
+        }],
+        "presentedForm" : [{
+          "contentType" : "application/xml",
+          "data" : "report"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "DiagnosticReport/pathology-diagnostic-report"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Specimen/adrenal-example",
+      "resource" : {
+        "resourceType" : "Specimen",
+        "id" : "adrenal-example",
+        "meta" : {
+          "versionId" : "11",
+          "lastUpdated" : "2022-06-03T13:40:51.690+00:00",
+          "source" : "#DCyuaH2ijNQrifW6",
+          "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Specimen_adrenal-example\"> </a><p><b>Generated Narrative: Specimen</b><a name=\"adrenal-example\"> </a><a name=\"hcadrenal-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Specimen &quot;adrenal-example&quot; Version &quot;11&quot; Updated &quot;2022-06-03 13:40:51+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #DCyuaH2ijNQrifW6!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-us-pathology-specimen.html\">US Pathology Specimen</a></p></div><p><b>identifier</b>: <code>http://some-lis.org/fhir/specimen-identifier-provisioner</code>/123456789</p><p><b>accessionIdentifier</b>: <code>http://some-lis.org/fhir/specimen-identifier-provisioner</code>/123456789X</p><p><b>type</b>: Biopsy <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0487.html\">specimenType</a>#BX)</span></p><p><b>request</b>: <a href=\"ServiceRequest-cancer-path-example.html\">ServiceRequest/cancer-path-example</a></p><h3>Collections</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Collected[x]</b></td><td><b>Method</b></td></tr><tr><td style=\"display: none\">*</td><td>2022-01-02</td><td>Biopsy - action <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://browser.ihtsdotools.org/\">SNOMED CT</a>#129314006)</span></td></tr></table><h3>Containers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Identifier</b></td></tr><tr><td style=\"display: none\">*</td><td><code>http://some-lis.org/fhir/specimen-containerID-provisioner</code>/987654321</td></tr></table></div>"
+        },
+        "identifier" : [{
+          "system" : "http://some-lis.org/fhir/specimen-identifier-provisioner",
+          "value" : "123456789"
+        }],
+        "accessionIdentifier" : {
+          "system" : "http://some-lis.org/fhir/specimen-identifier-provisioner",
+          "value" : "123456789X"
+        },
+        "type" : {
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0487",
+            "code" : "BX"
+          }]
+        },
+        "request" : [{
+          "reference" : "ServiceRequest/cancer-path-example"
+        }],
+        "collection" : {
+          "collectedDateTime" : "2022-01-02",
+          "method" : {
+            "coding" : [{
+              "system" : "http://snomed.info/sct",
+              "code" : "129314006",
+              "display" : "Biopsy - action"
+            }]
+          }
+        },
+        "container" : [{
+          "identifier" : [{
+            "system" : "http://some-lis.org/fhir/specimen-containerID-provisioner",
+            "value" : "987654321"
+          }]
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Specimen/adrenal-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/PractitionerRole/practitionerrole-uspath-oncologist-example",
+      "resource" : {
+        "resourceType" : "PractitionerRole",
+        "id" : "practitionerrole-uspath-oncologist-example",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2022-04-20T20:55:42.554+00:00",
+          "source" : "#HCVqSxfcTZTnsts2",
+          "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_practitionerrole-uspath-oncologist-example\"> </a><p><b>Generated Narrative: PractitionerRole</b><a name=\"practitionerrole-uspath-oncologist-example\"> </a><a name=\"hcpractitionerrole-uspath-oncologist-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource PractitionerRole &quot;practitionerrole-uspath-oncologist-example&quot; Version &quot;1&quot; Updated &quot;2022-04-20 20:55:42+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #HCVqSxfcTZTnsts2!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-us-pathology-related-practitioner-role.html\">US Pathology Related Practitioner Roles</a></p></div><p><b>practitioner</b>: <a href=\"Practitioner-oncologist-example.html\">Practitioner/oncologist-example</a> &quot; OWL&quot;</p><p><b>organization</b>: See on this page: Organization/Redwood-Womens-Center-PC</p><p><b>code</b>: Ordering Provider <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0443.html\">providerRole</a>#OP)</span></p><p><b>telecom</b>: ph: 720-242-5555</p></div>"
+        },
+        "practitioner" : {
+          "reference" : "Practitioner/oncologist-example"
+        },
+        "organization" : {
+          "reference" : "Organization/Redwood-Womens-Center-PC"
+        },
+        "code" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0443",
+            "code" : "OP",
+            "display" : "Ordering Provider"
+          }]
+        }],
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "720-242-5555"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "PractitionerRole/practitionerrole-us-path-oncologist-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/PractitionerRole/practitionerrole-uspath-pathologist-example",
+      "resource" : {
+        "resourceType" : "PractitionerRole",
+        "id" : "practitionerrole-uspath-pathologist-example",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2022-04-20T20:45:00.633+00:00",
+          "source" : "#y5EsNdR2MsuwqmD4",
+          "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_practitionerrole-uspath-pathologist-example\"> </a><p><b>Generated Narrative: PractitionerRole</b><a name=\"practitionerrole-uspath-pathologist-example\"> </a><a name=\"hcpractitionerrole-uspath-pathologist-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource PractitionerRole &quot;practitionerrole-uspath-pathologist-example&quot; Version &quot;1&quot; Updated &quot;2022-04-20 20:45:00+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #y5EsNdR2MsuwqmD4!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-us-pathology-related-practitioner-role.html\">US Pathology Related Practitioner Roles</a></p></div><p><b>practitioner</b>: See on this page: Practitioner/pathologist-example</p><p><b>organization</b>: See on this page: Organization/principal-pathology-lab</p><p><b>code</b>: Primary Interpreter <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0443.html\">providerRole</a>#PI)</span></p><p><b>telecom</b>: ph: 720-242-9999</p></div>"
+        },
+        "practitioner" : {
+          "reference" : "Practitioner/pathologist-example"
+        },
+        "organization" : {
+          "reference" : "Organization/principal-pathology-lab"
+        },
+        "code" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0443",
+            "code" : "PI",
+            "display" : "Primary Interpreter"
+          }]
+        }],
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "720-242-9999"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "PractitionerRole/practitionerrole-uspath-pathologist-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/PractitionerRole/practitionerrole-uspath-surgeon-example",
+      "resource" : {
+        "resourceType" : "PractitionerRole",
+        "id" : "practitionerrole-uspath-surgeon-example",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2022-04-20T20:56:01.077+00:00",
+          "source" : "#JqpM7QjUEzfyOUY3",
+          "profile" : ["http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"PractitionerRole_practitionerrole-uspath-surgeon-example\"> </a><p><b>Generated Narrative: PractitionerRole</b><a name=\"practitionerrole-uspath-surgeon-example\"> </a><a name=\"hcpractitionerrole-uspath-surgeon-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource PractitionerRole &quot;practitionerrole-uspath-surgeon-example&quot; Version &quot;1&quot; Updated &quot;2022-04-20 20:56:01+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #JqpM7QjUEzfyOUY3!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-us-pathology-related-practitioner-role.html\">US Pathology Related Practitioner Roles</a></p></div><p><b>practitioner</b>: <a href=\"Practitioner-surgeon-example.html\">Practitioner/surgeon-example</a> &quot; ALOT&quot;</p><p><b>organization</b>: See on this page: Organization/Redwood-Womens-Center-PC</p><p><b>code</b>: Ordering Provider <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0443.html\">providerRole</a>#OP)</span></p><p><b>telecom</b>: ph: 720-242-5555</p></div>"
+        },
+        "practitioner" : {
+          "reference" : "Practitioner/surgeon-example"
+        },
+        "organization" : {
+          "reference" : "Organization/Redwood-Womens-Center-PC"
+        },
+        "code" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0443",
+            "code" : "OP",
+            "display" : "Ordering Provider"
+          }]
+        }],
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "720-242-5555"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "PractitionerRole/practitioner-uspath-surgeon-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Organization/Redwood-Womens-Center-PC",
+      "resource" : {
+        "resourceType" : "Organization",
+        "id" : "Redwood-Womens-Center-PC",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2021-06-22T14:53:29.810+00:00",
+          "source" : "#TgAHtHyAQ0MVnpQh",
+          "profile" : ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_Redwood-Womens-Center-PC\"> </a><p><b>Generated Narrative: Organization</b><a name=\"Redwood-Womens-Center-PC\"> </a><a name=\"hcRedwood-Womens-Center-PC\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Organization &quot;Redwood-Womens-Center-PC&quot; Version &quot;1&quot; Updated &quot;2021-06-22 14:53:29+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #TgAHtHyAQ0MVnpQh!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-organization.html\">US Core Organization Profile</a></p></div><p><b>active</b>: true</p><p><b>name</b>: Redwood Women's Center, P.C.</p><p><b>address</b>: 3307 Renner Drive Fortuna CA 95540 USA </p></div>"
+        },
+        "active" : true,
+        "name" : "Redwood Women's Center, P.C.",
+        "address" : [{
+          "line" : ["3307 Renner Drive"],
+          "city" : "Fortuna",
+          "state" : "CA",
+          "postalCode" : "95540",
+          "country" : "USA"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Organization/Redwood-Womens-Center-PC"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Organization/principal-pathology-lab",
+      "resource" : {
+        "resourceType" : "Organization",
+        "id" : "principal-pathology-lab",
+        "meta" : {
+          "versionId" : "1",
+          "lastUpdated" : "2021-06-22T14:53:29.809+00:00",
+          "source" : "#HJa8mk0g943nkTI0",
+          "profile" : ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Organization_principal-pathology-lab\"> </a><p><b>Generated Narrative: Organization</b><a name=\"principal-pathology-lab\"> </a><a name=\"hcprincipal-pathology-lab\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Organization &quot;principal-pathology-lab&quot; Version &quot;1&quot; Updated &quot;2021-06-22 14:53:29+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #HJa8mk0g943nkTI0!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-organization.html\">US Core Organization Profile</a></p></div><p><b>active</b>: true</p><p><b>name</b>: Some Pathology Lab Name</p><p><b>address</b>: Any City CA 95540 USA </p></div>"
+        },
+        "active" : true,
+        "name" : "Some Pathology Lab Name",
+        "address" : [{
+          "line" : ["Any"],
+          "city" : "City",
+          "state" : "CA",
+          "postalCode" : "95540",
+          "country" : "USA"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Organization/principal-pathology-lab"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/Practitioner/pathologist-example",
+      "resource" : {
+        "resourceType" : "Practitioner",
+        "id" : "pathologist-example",
+        "meta" : {
+          "versionId" : "2",
+          "lastUpdated" : "2022-03-23T20:50:13.458+00:00",
+          "source" : "#eupV4uZv69zJMEv8",
+          "profile" : ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"Practitioner_pathologist-example\"> </a><p><b>Generated Narrative: Practitioner</b><a name=\"pathologist-example\"> </a><a name=\"hcpathologist-example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Practitioner &quot;pathologist-example&quot; Version &quot;2&quot; Updated &quot;2022-03-23 20:50:13+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #eupV4uZv69zJMEv8!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-practitioner.html\">US Core Practitioner Profile</a></p></div><p><b>identifier</b>: <a href=\"http://terminology.hl7.org/5.0.0/NamingSystem-npi.html\" title=\"National Provider Identifier\">NPI</a>/10987654321</p><p><b>name</b>: Stains Alot </p></div>"
+        },
+        "identifier" : [{
+          "system" : "http://hl7.org/fhir/sid/us-npi",
+          "value" : "10987654321"
+        }],
+        "name" : [{
+          "family" : "Alot",
+          "given" : ["Stains"]
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "Practitioner/pathologist-example"
+      }
+    },
+    {
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/RelatedPerson/pathology-next-of-kin",
+      "resource" : {
+        "resourceType" : "RelatedPerson",
+        "id" : "pathology-next-of-kin",
+        "meta" : {
+          "versionId" : "6",
+          "lastUpdated" : "2022-06-03T13:58:10.961+00:00",
+          "source" : "#hZYecGmLljeME3nB",
+          "profile" : ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"]
+        },
+        "text" : {
+          "status" : "generated",
+          "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><a name=\"RelatedPerson_pathology-next-of-kin\"> </a><p><b>Generated Narrative: RelatedPerson</b><a name=\"pathology-next-of-kin\"> </a><a name=\"hcpathology-next-of-kin\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource RelatedPerson &quot;pathology-next-of-kin&quot; Version &quot;6&quot; Updated &quot;2022-06-03 13:58:10+0000&quot; </p><p style=\"margin-bottom: 0px\">Information Source: #hZYecGmLljeME3nB!</p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU5.0.1/StructureDefinition-us-core-relatedperson.html\">US Core RelatedPerson Profile</a></p></div><p><b>active</b>: true</p><p><b>patient</b>: See on this page: Patient/JoelAlexPatient</p><p><b>relationship</b>: Next-of-Kin <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v2-0131.html\">contactRole2</a>#N)</span></p><p><b>name</b>: Minni Me </p><p><b>telecom</b>: ph: 1-989-654-7896</p></div>"
+        },
+        "active" : true,
+        "patient" : {
+          "reference" : "Patient/JoelAlexPatient"
+        },
+        "relationship" : [{
+          "coding" : [{
+            "system" : "http://terminology.hl7.org/CodeSystem/v2-0131",
+            "code" : "N",
+            "display" : "Next-of-Kin"
+          }]
+        }],
+        "name" : [{
+          "family" : "Me",
+          "given" : ["Minni"]
+        }],
+        "telecom" : [{
+          "system" : "phone",
+          "value" : "1-989-654-7896"
+        }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "RelatedPerson/pathology-next-of-kin"
+      }
+    }]
+  }
