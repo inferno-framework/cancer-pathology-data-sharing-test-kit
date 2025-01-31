@@ -1,4 +1,6 @@
 require 'inferno/dsl/oauth_credentials'
+
+require_relative 'report_generation_suite/cpds_bundle_generation_test'
 require_relative 'version'
 
 # require_relative 'report_generation_suite/generated/v1.0.1/pathology_specimen_group'
@@ -71,6 +73,8 @@ module CancerPathologyDataSharingTestKit
     group do
 
       title 'Cancer Pathology Report Generation'
+
+      test from: :cpds_bundle_generation_test
 
     end
   end
