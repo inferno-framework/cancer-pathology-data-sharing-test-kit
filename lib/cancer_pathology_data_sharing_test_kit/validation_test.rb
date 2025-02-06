@@ -3,7 +3,7 @@ module CancerPathologyDataSharingTestKit
     DAR_CODE_SYSTEM_URL = 'http://terminology.hl7.org/CodeSystem/data-absent-reason'.freeze
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'.freeze
 
-    def perform_validation_test(resourceType = resource_type,
+    def perform_strict_validation_test(resourceType = resource_type,
                                 resources,
                                 profile_url,
                                 profile_version,
@@ -53,5 +53,23 @@ module CancerPathologyDataSharingTestKit
       scratch[:dar_extension_found] = true
       output dar_extension_found: 'true'
     end
+
+
+    def perform_validation_test(resourceType = resource_type,
+      resources,
+      profile_url,
+      profile_version)
+
+      return if resources.blank?                 
+
+      profile_with_version = "#{profile_url}|#{profile_version}"
+      conforms = false
+      resources.each do |resource|
+        conforms = true if resource_is_valid?(resource: resource, profile_url: profile_with_version)
+      end
+
+      assert conforms, "One of the attached bundless does not contain #{resourceType} that conforms to the profile #{profile_with_version}"
+    end
+
   end
 end
