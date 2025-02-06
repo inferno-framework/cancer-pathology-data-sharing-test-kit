@@ -13,3 +13,12 @@ namespace :db do
     Inferno::Utils::Migration.new.run
   end
 end
+
+namespace :cpds do
+  desc 'Run Generator'
+  task :generate do
+    require_relative 'lib/cancer_pathology_data_sharing_test_kit/generator'
+
+    CancerPathologyDataSharingTestKit::Generator.generate
+  end
+end

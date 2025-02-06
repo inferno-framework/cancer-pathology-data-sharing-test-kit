@@ -2,8 +2,7 @@ require 'inferno/dsl/oauth_credentials'
 
 require_relative 'report_generation_suite/cpds_bundle_generation_test'
 require_relative 'version'
-
-# require_relative 'report_generation_suite/generated/v1.0.1/pathology_specimen_group'
+require_relative 'report_generation_suite/exchange_bundle_group'
 
 module CancerPathologyDataSharingTestKit
   class ReportGenerationSuite < Inferno::TestSuite
@@ -70,12 +69,7 @@ module CancerPathologyDataSharingTestKit
     description: 'Comma-Separated Content Bundle(s)',
     type: 'textarea'
 
-    group do
+    group from: :exchange_bundle_group
 
-      title 'Cancer Pathology Report Generation'
-
-      test from: :cpds_bundle_generation_test
-
-    end
   end
 end
