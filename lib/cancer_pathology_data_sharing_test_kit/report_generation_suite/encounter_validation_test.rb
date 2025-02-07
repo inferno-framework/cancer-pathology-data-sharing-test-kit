@@ -7,7 +7,16 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::BundleParse
 
     title 'Encounter resources confirm to the US Core Encounter profile'
-    description %()
+    description %(
+    This test verifies at least one of the Encounter resources returned from each bundle conforms to
+    the [US Core Encounter Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter).
+
+    It verifies the presence of mandatory elements and that elements with
+    required bindings contain appropriate values. CodeableConcept element
+    bindings will fail if none of their codings have a code/system belonging
+    to the bound ValueSet. Quantity, Coding, and code element bindings will
+    fail if their code/system are not found in the valueset.
+    )
 
     id :encounter_validation_test
 
