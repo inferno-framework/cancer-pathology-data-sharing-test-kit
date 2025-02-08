@@ -31,10 +31,7 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
-      scratch[:cpds_exchange_bundles].each do |bundle|
-        # TODO: Aware that this is the wrong data structure. Need to fix for must support.
-        perform_must_support_test(bundle)
-      end
+      perform_must_support_test(scratch[:cpds_exchange_bundles])
     end
   end
 end
