@@ -1,15 +1,15 @@
-require_relative '../bundle_parse'
-require_relative '../validation_test'
+require_relative '../../bundle_parse'
+require_relative '../../validation_test'
 
 module CancerPathologyDataSharingTestKit
-  class ServiceRequestValidationTest < Inferno::Test
+  class EncounterValidationTest < Inferno::Test
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'ServiceRequest resources confirm to the US Pathology ServiceRequest profile'
+    title 'Encounter resources confirm to the US Core Encounter profile'
     description %(
     This test verifies at least one of the Encounter resources returned from each bundle conforms to
-    the [US Pathology Service Request](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request).
+    the [US Core Encounter Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter).
 
     It verifies the presence of mandatory elements and that elements with
     required bindings contain appropriate values. CodeableConcept element
@@ -18,21 +18,21 @@ module CancerPathologyDataSharingTestKit
     fail if their code/system are not found in the valueset.
     )
 
-    id :service_request_validation_test
+    id :encounter_validation_test
 
     def resource_type
-      'ServiceRequest'
+      'Encounter'
     end
 
     run do
-      scratch[:cpds].each do |bundle_resources|
-        resources = bundle_resources['ServiceRequest']
+      scratch[:cpds_resources].each do |bundle_resources|
+        resources = bundle_resources['Encounter']
 
         # Go ahead and skip if resources is all empty
         skip_if resources.blank?, "No #{resource_type} resources were returned."
 
-        profile_url = PE_BUNDLE_SLICE_RESOURCES['ServiceRequest']
-        perform_validation_test('ServiceRequest', resources, profile_url, '1.0.1')
+        profile_url = PE_BUNDLE_SLICE_RESOURCES['Encounter']
+        perform_validation_test('Encounter', resources, profile_url, '5.0.1')
       end
     end
   end

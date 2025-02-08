@@ -1,15 +1,15 @@
-require_relative '../bundle_parse'
-require_relative '../validation_test'
+require_relative '../../bundle_parse'
+require_relative '../../validation_test'
 
 module CancerPathologyDataSharingTestKit
-  class PractitionerRoleValidationTest < Inferno::Test
+  class PatientValidationTest < Inferno::Test
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'PractitionerRole resources confirm to the US Pathology PractitionerRole profile'
+    title 'Patient resources confirm to the US Core Patient profile'
     description %(
     This test verifies at least one of the Encounter resources returned from each bundle conforms to
-    the [US Pathology Related PractitionerRoles](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role).
+    the [US Core Patient Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient).
 
     It verifies the presence of mandatory elements and that elements with
     required bindings contain appropriate values. CodeableConcept element
@@ -18,21 +18,21 @@ module CancerPathologyDataSharingTestKit
     fail if their code/system are not found in the valueset.
     )
 
-    id :practitioner_role_validation_test
+    id :patient_validation_test
 
     def resource_type
-      'PractitionerRole'
+      'Patient'
     end
 
     run do
-      scratch[:cpds].each do |bundle_resources|
-        resources = bundle_resources['PractitionerRole']
+      scratch[:cpds_resources].each do |bundle_resources|
+        resources = bundle_resources['Patient']
 
         # Go ahead and skip if resources is all empty
         skip_if resources.blank?, "No #{resource_type} resources were returned."
 
-        profile_url = PE_BUNDLE_SLICE_RESOURCES['PractitionerRole']
-        perform_validation_test('PractitionerRole', resources, profile_url, '1.0.1')
+        profile_url = PE_BUNDLE_SLICE_RESOURCES['Patient']
+        perform_validation_test('Patient', resources, profile_url, '5.0.1')
       end
     end
   end

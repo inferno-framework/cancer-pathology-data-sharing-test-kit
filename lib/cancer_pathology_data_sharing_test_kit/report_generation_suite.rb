@@ -1,13 +1,5 @@
 require 'inferno/dsl/oauth_credentials'
 
-require_relative 'report_generation_suite/cpds_bundle_generation_test'
-require_relative 'report_generation_suite/diagnostic_report_validation_test'
-require_relative 'report_generation_suite/encounter_validation_test'
-require_relative 'report_generation_suite/practitioner_role_validation_test'
-require_relative 'report_generation_suite/patient_validation_test'
-require_relative 'report_generation_suite/service_request_validation_test'
-require_relative 'report_generation_suite/specimen_validation_test.rb'
-
 require_relative 'version'
 require_relative 'report_generation_suite/exchange_bundle_group'
 

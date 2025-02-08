@@ -10,10 +10,10 @@ module CancerPathologyDataSharingTestKit
     id :cpds_bundle_generation_test
 
     def add_to_scratch(bundles_array)
-      scratch[:cpds] ||= []
+      scratch[:cpds_resources] ||= []
       bundles_array.each do |report| 
         bundle = FHIR.from_contents(report.to_json)
-        scratch[:cpds] << parse_bundle(bundle)
+        scratch[:cpds_resources] << parse_bundle(bundle)
       end
     end
 

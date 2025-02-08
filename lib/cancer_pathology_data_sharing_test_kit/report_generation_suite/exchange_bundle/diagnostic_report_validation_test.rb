@@ -1,5 +1,5 @@
-require_relative '../bundle_parse'
-require_relative '../validation_test'
+require_relative '../../bundle_parse'
+require_relative '../../validation_test'
 
 module CancerPathologyDataSharingTestKit
   class DiagnosticReportValidationTest < Inferno::Test
@@ -25,7 +25,7 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
-      scratch[:cpds].each do |bundle_resources|
+      scratch[:cpds_resources].each do |bundle_resources|
         resources = bundle_resources['DiagnosticReport']
 
         # Go ahead and skip if resources is all empty
