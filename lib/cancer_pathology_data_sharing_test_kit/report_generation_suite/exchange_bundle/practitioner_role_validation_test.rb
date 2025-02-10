@@ -6,7 +6,7 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'PractitionerRole resources confirm to the US Pathology PractitionerRole profile'
+    title 'At least one of the PractitionerRole resources in the bundle(s) conforms to the US Pathology PractitionerRole profile'
     description %(
     This test verifies at least one of the Encounter resources returned from each bundle conforms to
     the [US Pathology Related PractitionerRoles](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role).

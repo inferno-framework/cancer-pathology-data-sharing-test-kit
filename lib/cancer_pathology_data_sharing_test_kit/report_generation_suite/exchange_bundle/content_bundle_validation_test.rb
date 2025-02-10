@@ -6,11 +6,11 @@ module CancerPathologyDataSharingTestKit
   class ContentBundleValidationTest < Inferno::Test
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
-    title 'Pathology Exchange Bundle Validation Test'
+    title 'Provided Bundle resources conform to the US Pathology Exchange Bundle Profile'
     id :content_bundle_validation_test
 
     description %(
-        Verify that the generated report is a conformant
+        Verify that all the generated report(s) are a conformant
         [Pathology Exchange Bundle](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-exchange-bundle.html).
       )
   

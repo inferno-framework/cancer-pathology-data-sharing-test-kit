@@ -6,7 +6,7 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'DiagnosticReport resources confirm to the US Pathology Diagnostic Report profile'
+    title 'At least one of the DiagnosticReport resources in the bundle(s) conforms to the US Pathology Diagnostic Report profile'
     description %(
     This test verifies at least one of the DiagnosticReport resources returned from each bundle conforms to
     the [US Pathology Diagnostic Report](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-diagnostic-report).

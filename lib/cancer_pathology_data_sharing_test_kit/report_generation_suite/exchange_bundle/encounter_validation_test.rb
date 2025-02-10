@@ -6,7 +6,7 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'Encounter resources confirm to the US Core Encounter profile'
+    title 'At least one of the Encounter resources in the bundle(s) conforms to the US Core Encounter profile'
     description %(
     This test verifies at least one of the Encounter resources returned from each bundle conforms to
     the [US Core Encounter Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter).

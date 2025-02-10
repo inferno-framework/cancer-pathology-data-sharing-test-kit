@@ -6,7 +6,7 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'Specimen resources confirm to the US Pathology Specimen profile'
+    title 'At least one of the Specimen resources in the bundle(s) conforms to the US Pathology Specimen profile'
     description %(
     This test verifies at least one of the Encounter resources returned from each bundle conforms to
     the [US Pathology Specimen](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen).
