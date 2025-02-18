@@ -4,16 +4,17 @@ module CancerPathologyDataSharingTestKit
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'.freeze
 
     def perform_strict_validation_test(resourceType = resource_type,
+                                bundle_id,
                                 resources,
                                 profile_url,
                                 profile_version,
                                 skip_if_empty: true)
                                                        
       skip_if skip_if_empty && resources.blank?,
-              "No #{resourceType} resources conforming to the #{profile_url} profile were returned"
+              "No #{resourceType} resources in bundle `#{bundle_id}` were provided so the #{profile_url} profile does not apply"
 
       omit_if resources.blank?,
-              "No #{resourceType} resources provided so the #{profile_url} profile does not apply"
+              "No #{resourceType} resources in bundle `#{bundle_id}` were provided so the #{profile_url} profile does not apply"
 
       profile_with_version = "#{profile_url}|#{profile_version}"
       resources.each do |resource|
@@ -23,7 +24,7 @@ module CancerPathologyDataSharingTestKit
 
       errors_found = messages.any? { |message| message[:type] == 'error' }
 
-      assert !errors_found, "Resource does not conform to the profile #{profile_with_version}"
+      assert !errors_found, "At least one of the #{resourceType} resource(s) in bundle `#{bundle_id}` does not conform to the profile #{profile_with_version}"
     end
 
     def check_for_dar(resource)

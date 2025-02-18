@@ -25,14 +25,14 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
-      scratch[:cpds_resources].each do |bundle_resources|
+      scratch[:cpds_resources].each do |bundle_id, bundle_resources|
         resources = bundle_resources['PractitionerRole']
 
         # Go ahead and skip if resources is all empty
         skip_if resources.blank?, "No #{resource_type} resources were returned."
 
         profile_url = PE_BUNDLE_SLICE_RESOURCES['PractitionerRole']
-        perform_validation_test('PractitionerRole', resources, profile_url, '1.0.1')
+        perform_strict_validation_test('PractitionerRole', bundle_id, resources, profile_url, '1.0.1')
       end
     end
   end

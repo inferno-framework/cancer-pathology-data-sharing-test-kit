@@ -1,5 +1,6 @@
 require_relative '../../bundle_parse'
 require_relative '../../validation_test'
+require_relative '../../generator/naming'
 
 module CancerPathologyDataSharingTestKit
   class SpecimenValidationTest < Inferno::Test
@@ -25,14 +26,15 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
-      scratch[:cpds_resources].each do |bundle_resources|
+      scratch[:cpds_resources].each do |bundle_id, bundle_resources|
         resources = bundle_resources['Specimen']
 
         # Go ahead and skip if resources is all empty
         skip_if resources.blank?, "No #{resource_type} resources were returned."
 
         profile_url = PE_BUNDLE_SLICE_RESOURCES['Specimen']
-        perform_validation_test('Specimen', resources, profile_url, '1.0.1')
+        perform_strict_validation_test('Specimen',bundle_id, resources, profile_url, '1.0.1')
+        assert (resources.length >= 1), "There must be at least one (1) #{resource_type} resource per bundle. Bundle `#{bundle_id}` has #{resources.length} resources"
       end
     end
   end

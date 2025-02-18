@@ -20,7 +20,7 @@ module CancerPathologyDataSharingTestKit
       * Bundle.type
     )
 
-    id :content_bundle_must_support_test
+    id :exchange_bundle_must_support_test
 
     def resource_type
       'Bundle'
