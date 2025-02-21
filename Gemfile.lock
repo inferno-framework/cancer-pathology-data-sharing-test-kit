@@ -194,11 +194,11 @@ GEM
       mustermann (= 1.1.2)
     netrc (0.11.0)
     nio4r (2.7.4)
-    nokogiri (1.18.1-aarch64-linux-gnu)
+    nokogiri (1.18.1-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.18.1-aarch64-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.1-arm-linux-gnu)
+    nokogiri (1.18.1-arm-linux)
       racc (~> 1.4)
     nokogiri (1.18.1-arm-linux-musl)
       racc (~> 1.4)
@@ -206,7 +206,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.1-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.1-x86_64-linux-gnu)
+    nokogiri (1.18.1-x86_64-linux)
       racc (~> 1.4)
     nokogiri (1.18.1-x86_64-linux-musl)
       racc (~> 1.4)
@@ -262,6 +262,8 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-support (3.13.2)
+    rspec_junit_formatter (0.6.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby2_keywords (0.0.5)
     sequel (5.42.0)
     sidekiq (7.2.4)
@@ -314,15 +316,15 @@ GEM
 
 PLATFORMS
   aarch64-linux
-  aarch64-linux-gnu
+  aarch64-linux
   aarch64-linux-musl
   arm-linux
-  arm-linux-gnu
+  arm-linux
   arm-linux-musl
   arm64-darwin
   x86_64-darwin
   x86_64-linux
-  x86_64-linux-gnu
+  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
@@ -332,6 +334,7 @@ DEPENDENCIES
   factory_bot (~> 6.1)
   rack-test
   rspec (~> 3.10)
+  rspec_junit_formatter
   us_core_test_kit
   webmock (~> 3.11)
 
