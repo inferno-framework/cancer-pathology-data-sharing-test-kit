@@ -7,9 +7,9 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'At least one of the Patient resources in the bundle(s) conforms to the US Core Patient profile'
+    title 'Patient resource in each bundle conforms to the US Core Patient profile'
     description %(
-    This test verifies at least one of the Encounter resources returned from each bundle conforms to
+    This test verifies that there is exactly one Patient resource returned from each bundle and that it conforms to
     the [US Core Patient Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient).
 
     It verifies the presence of mandatory elements and that elements with
@@ -26,16 +26,16 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
+      invalid_bundles = []
       scratch[:cpds_resources].each do |bundle_id, bundle_resources|
-        resources = bundle_resources['Patient']
-
-        # Go ahead and skip if resources is all empty
-        skip_if resources.blank?, "No #{resource_type} resources were returned."
+        resources = bundle_resources['Patient'] || []
 
         profile_url = PE_BUNDLE_SLICE_RESOURCES['Patient']
-        perform_strict_validation_test('Patient', bundle_id, resources, profile_url, '5.0.1')
-        assert (resources.length == 1), "There must be exactly one (1) #{resource_type} resource per bundle. Bundle `#{bundle_id}` has #{resources.length} resources"
+        invalid_bundles << bundle_id if perform_strict_validation_test('Patient', bundle_id, resources, profile_url, '5.0.1', restriction: "exactly_one")
       end
+      
+      check_for_errors(invalid_bundles)
+
     end
   end
 end

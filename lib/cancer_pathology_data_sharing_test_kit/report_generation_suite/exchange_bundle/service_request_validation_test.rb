@@ -6,9 +6,9 @@ module CancerPathologyDataSharingTestKit
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
 
-    title 'At least one of the ServiceRequest resources in the bundle(s) conforms to the US Pathology ServiceRequest profile'
+    title 'ServiceRequest resources in the bundle(s) conforms to the US Pathology ServiceRequest profile'
     description %(
-    This test verifies at least one of the Encounter resources returned from each bundle conforms to
+    This test verifies that any ServiceRequest resources returned from each bundle conforms to
     the [US Pathology Service Request](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request).
 
     It verifies the presence of mandatory elements and that elements with
@@ -25,15 +25,20 @@ module CancerPathologyDataSharingTestKit
     end
 
     run do
+      invalid_bundles = []
+      total_resources = 0
       scratch[:cpds_resources].each do |bundle_id, bundle_resources|
-        resources = bundle_resources['ServiceRequest']
-
-        # Go ahead and skip if resources is all empty
-        skip_if resources.blank?, "No #{resource_type} resources were returned."
+        resources = bundle_resources['ServiceRequest'] || []
+        total_resources += resources.length
 
         profile_url = PE_BUNDLE_SLICE_RESOURCES['ServiceRequest']
-        perform_strict_validation_test('ServiceRequest', bundle_id, resources, profile_url, '1.0.1')
+        invalid_bundles << bundle_id if perform_strict_validation_test('ServiceRequest', bundle_id, resources, profile_url, '1.0.1', skip_if_empty: false)
       end
+
+      skip_if total_resources == 0,
+        "No #{resource_type} resources found in any of the given bundles"
+
+      check_for_errors(invalid_bundles)
     end
   end
 end
