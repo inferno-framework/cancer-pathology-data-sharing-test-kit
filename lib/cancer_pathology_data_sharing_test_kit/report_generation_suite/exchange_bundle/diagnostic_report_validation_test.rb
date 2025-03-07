@@ -27,12 +27,17 @@ module CancerPathologyDataSharingTestKit
 
     run do
       invalid_bundles = []
+      total_resources = 0
       scratch[:cpds_resources].each do |bundle_id, bundle_resources|
         resources = bundle_resources['DiagnosticReport'] || []
+        total_resources += resources.length
 
         profile_url = PE_BUNDLE_SLICE_RESOURCES['DiagnosticReport']
         invalid_bundles << bundle_id if perform_strict_validation_test('DiagnosticReport', bundle_id, resources, profile_url, '1.0.1', restriction: "exactly_one")
       end
+
+      skip_if total_resources == 0,
+        "No #{resource_type} resources found in any of the given bundles"
 
       check_for_errors(invalid_bundles)
 

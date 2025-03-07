@@ -4,9 +4,9 @@ module CancerPathologyDataSharingTestKit
     DAR_EXTENSION_URL = 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'.freeze
 
     CARDINALITY_RESTRICTIONS = {
-      "exactly_one" => ["==", 1, "There must be exactly one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resources"],
-      "no_more_than_one" => ["<=", 1, "There must be no more than one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resources"],
-      "at_least_one" => [">=", 1, "There must be at least one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resources"]
+      "exactly_one" => ["==", 1, "There must be exactly one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resource(s)"],
+      "no_more_than_one" => ["<=", 1, "There must be no more than one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resource(s)"],
+      "at_least_one" => [">=", 1, "There must be at least one (1) %{resource_type} resource per bundle. Bundle `%{bundle_id}` has %{resources_length} resource(s)"]
     }
 
     def perform_strict_validation_test(resourceType = resource_type,
@@ -16,7 +16,7 @@ module CancerPathologyDataSharingTestKit
                                 profile_version,
                                 skip_if_empty: true,
                                 restriction: nil)
-         
+
       unless restriction.nil?
         unless resources.length.public_send(CARDINALITY_RESTRICTIONS[restriction][0], CARDINALITY_RESTRICTIONS[restriction][1])
           messages << { 
@@ -38,21 +38,21 @@ module CancerPathologyDataSharingTestKit
         return false
       end
 
+      not_valid = false
       profile_with_version = "#{profile_url}|#{profile_version}"
       resources.each do |resource|
-        resource_is_valid?(resource: resource, profile_url: profile_with_version)
+        not_valid == true unless resource_is_valid?(resource: resource, profile_url: profile_with_version)
         check_for_dar(resource)
       end
 
-      errors_found = messages.any? { |message| message[:type] == 'error' }
-      if errors_found
+      if not_valid
         messages << { 
                       type: "error",
                       message: "At least one of the #{resourceType} resource(s) in bundle `#{bundle_id}` does not conform to the profile #{profile_with_version}"
                     }
       end
       
-      return errors_found
+      return not_valid
     end
 
     def check_for_dar(resource)
