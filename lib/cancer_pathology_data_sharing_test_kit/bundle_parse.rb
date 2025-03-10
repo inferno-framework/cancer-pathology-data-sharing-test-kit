@@ -14,7 +14,7 @@ module CancerPathologyDataSharingTestKit
     PE_BUNDLE_SLICE_RESOURCES = {
       'Patient' => 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient',
       'Encounter' => 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter',
-      'DiagnosticReport' => 'https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/StructureDefinition-us-pathology-diagnostic-report.html',
+      'DiagnosticReport' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-diagnostic-report',
       'Specimen' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen',
       'ServiceRequest' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request',
       'PractitionerRole' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role'

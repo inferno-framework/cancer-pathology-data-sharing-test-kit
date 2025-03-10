@@ -1,6 +1,5 @@
 require 'inferno/dsl/oauth_credentials'
 
-require_relative 'report_generation_suite/cpds_bundle_generation_test'
 require_relative 'version'
 require_relative 'report_generation_suite/exchange_bundle_group'
 
@@ -70,6 +69,5 @@ module CancerPathologyDataSharingTestKit
     type: 'textarea'
 
     group from: :exchange_bundle_group
-
   end
 end
