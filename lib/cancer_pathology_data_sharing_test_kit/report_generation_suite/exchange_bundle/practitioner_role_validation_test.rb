@@ -8,7 +8,7 @@ module CancerPathologyDataSharingTestKit
 
     title 'PractitionerRole resources in the bundle(s) conforms to the US Pathology PractitionerRole profile'
     description %(
-    This test verifies that any PractitionerRole resources returned from each bundle conforms to
+    This test verifies that any PractitionerRole resources from each bundle conforms to
     the [US Pathology Related PractitionerRoles](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role).
 
     It verifies the presence of mandatory elements and that elements with

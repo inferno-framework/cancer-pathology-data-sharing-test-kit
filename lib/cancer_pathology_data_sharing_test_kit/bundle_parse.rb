@@ -35,6 +35,7 @@ module CancerPathologyDataSharingTestKit
         unless current_resource.is_a?(FHIR::Reference)
           # Not a reference, then just add the resoure to parsed bundle
           parsed_bundle[current_resource.resourceType] ||= []
+          info "Storing #{current_resource.id} at #{current_resource.resourceType}" if current_resource.resourceType == "Specimen"
           parsed_bundle[current_resource.resourceType] << current_resource
         end
       end

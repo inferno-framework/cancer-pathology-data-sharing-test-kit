@@ -29,7 +29,16 @@ module CancerPathologyDataSharingTestKit
       PROVENANCE = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance'
       #Cancer Pathology
       CPDS_EXCHANGE_BUNDLE = 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-exchange-bundle'
+      SERVICE_REQUEST = 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request'
+      SPECIMEN = 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen'
+      US_PATHOLOGY_DIAGNOSTIC_REPORT = 'https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/StructureDefinition-us-pathology-diagnostic-report.html'
 
+      CPDS_KEY_MAP = {
+        'Specimen' => 'specimen',
+        'ServiceRequest' => 'service_request',
+        'DiagnosticReport' => 'us_pathology_diagnostic_report',
+        'PractitionerRole' => 'practitioner_role'
+      }.freeze
 
       IG_LINKS = {
         'v3.1.1' => 'http://hl7.org/fhir/us/core/STU3.1.1',
@@ -47,6 +56,11 @@ module CancerPathologyDataSharingTestKit
 
         def resource_has_multiple_profiles?(resource)
           resources_with_multiple_profiles.include? resource
+        end
+
+        def cpds_key_translation(key)
+          return CPDS_KEY_MAP[key] if CPDS_KEY_MAP[key]
+          return key.downcase
         end
 
         def snake_case_for_profile(group_metadata)

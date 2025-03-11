@@ -36,7 +36,13 @@ module CancerPathologyDataSharingTestKit
 
       path_segments = path.split(/(?<!hl7)\./)
 
-      segment = path_segments.shift.delete_suffix('[x]').gsub(/^class$/, 'local_class').gsub(/\[x\]:/, ':').to_sym
+      segment = path_segments
+        .shift
+        .delete_suffix('[x]')
+        .gsub(/^class$/, 'local_class')
+        .gsub(/^method$/, 'local_method')
+        .gsub(/\[x\]:/, ':')
+        .to_sym
       no_elements_present =
         elements.none? do |element|
         child = get_next_value(element, segment)
@@ -86,8 +92,8 @@ module CancerPathologyDataSharingTestKit
     end
 
     def find_slice_via_discriminator(element, property)
-      element_name = property.to_s.split(':')[0].gsub(/^class$/, 'local_class')
-      slice_name = property.to_s.split(':')[1].gsub(/^class$/, 'local_class')
+      element_name = property.to_s.split(':')[0].gsub(/^class$/, 'local_class').gsub(/^method$/, 'local_method')
+      slice_name = property.to_s.split(':')[1].gsub(/^class$/, 'local_class').gsub(/^method$/, 'local_method')
       if metadata.present?
         slice_by_name = metadata.must_supports[:slices].find{ |slice| slice[:slice_name] == slice_name }
         discriminator = slice_by_name[:discriminator]
@@ -122,7 +128,11 @@ module CancerPathologyDataSharingTestKit
             when 'String'
               slice.is_a? String
             else
-              slice.is_a? FHIR.const_get(discriminator[:code])
+              if slice.is_a? FHIR::Bundle::Entry
+                slice.resource.resourceType == discriminator[:code]
+              else
+                slice.is_a? FHIR.const_get(discriminator[:code])
+              end
             end
           when 'requiredBinding'
             slice_value = discriminator[:path].present? ? slice.send("#{discriminator[:path]}").coding : slice.coding

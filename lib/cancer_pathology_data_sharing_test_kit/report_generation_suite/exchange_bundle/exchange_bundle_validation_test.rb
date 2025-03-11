@@ -31,14 +31,12 @@ module CancerPathologyDataSharingTestKit
           bundle = FHIR.from_contents(report.to_json)
           assert_resource_type('Bundle', resource: bundle)
           bundle_id = bundle.id
-          # bundle_id = '1'
           scratch[:cpds_exchange_bundles] << bundle
           scratch[:cpds_resources][bundle_id] = parse_bundle(bundle)
         end
       end
   
       run do
-        # TODO: For now, no validation on the input, assume it's correct
         # Put reports into array to process
         bundles_array = JSON.parse('[' + reports + ']')
         add_to_scratch(bundles_array)

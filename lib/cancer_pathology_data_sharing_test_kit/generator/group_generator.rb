@@ -41,7 +41,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def module_name
-        "HDEA#{group_metadata.reformatted_version.upcase}"
+        "#{group_metadata.reformatted_version.upcase}"
       end
 
       def title
@@ -65,7 +65,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def group_id
-        "ccrr_#{group_metadata.reformatted_version}_#{profile_identifier}"
+        "#{group_metadata.reformatted_version}_#{profile_identifier}"
       end
 
       def resource_type
@@ -137,7 +137,7 @@ module CancerPathologyDataSharingTestKit
         sequence. Any subsequent searches will look for its parameter values
         from the results of the first search. For example, the `identifier`
         search in the patient sequence is performed by looking for an existing
-        `Patient.identifier` from any of the resources returned in the `_id`
+        `Patient.identifier` from any of the resources in the `_id`
         search. If a value cannot be found this way, the search is skipped.
 
         ### Search Validation

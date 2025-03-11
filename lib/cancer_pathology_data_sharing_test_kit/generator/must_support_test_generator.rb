@@ -47,7 +47,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def test_id
-        "ccrr_#{group_metadata.reformatted_version}_#{profile_identifier}_must_support_test"
+        "#{group_metadata.reformatted_version}_#{profile_identifier}_must_support_test"
       end
 
       def class_name
@@ -55,7 +55,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def module_name
-        "HDEA#{group_metadata.reformatted_version.upcase}"
+        "#{group_metadata.reformatted_version.upcase}"
       end
 
       def resource_type

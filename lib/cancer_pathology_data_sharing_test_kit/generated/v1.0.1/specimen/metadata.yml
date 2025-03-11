@@ -1,0 +1,51 @@
+---
+:name: us_pathology_specimen
+:class_name: UsPathologySpecimenSequence
+:version: v1.0.1
+:reformatted_version: v101
+:resource: Specimen
+:profile_url: http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen
+:profile_name: US Pathology Specimen
+:profile_version: 1.0.1
+:title: US Pathology Specimen
+:short_description: Verify support for the server capabilities required by the US
+  Pathology Specimen.
+:must_supports:
+  :extensions: []
+  :slices: []
+  :elements:
+  - :path: identifier
+  - :path: accessionIdentifier
+  - :path: status
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: type
+  - :path: receivedTime
+  - :path: parent
+    :types:
+    - Reference
+  - :path: collection
+  - :path: collection.collector
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role
+  - :path: collection.collected[x]
+  - :path: collection.method
+  - :path: collection.bodySite
+  - :path: container
+  - :path: note
+:mandatory_elements:
+- Specimen.identifier
+- Specimen.accessionIdentifier
+- Specimen.type
+- Specimen.collection.collected[x]
+- Specimen.collection.method
+- Specimen.container
+- Specimen.container.identifier
+:tests: []
+:id: v101_specimen
+:file_name: specimen_group.rb

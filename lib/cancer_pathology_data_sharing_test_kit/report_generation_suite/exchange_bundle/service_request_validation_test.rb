@@ -8,7 +8,7 @@ module CancerPathologyDataSharingTestKit
 
     title 'ServiceRequest resources in the bundle(s) conforms to the US Pathology ServiceRequest profile'
     description %(
-    This test verifies that any ServiceRequest resources returned from each bundle conforms to
+    This test verifies that any ServiceRequest resources from each bundle conforms to
     the [US Pathology Service Request](http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request).
 
     It verifies the presence of mandatory elements and that elements with
