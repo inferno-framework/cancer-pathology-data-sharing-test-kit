@@ -7,6 +7,10 @@ module CancerPathologyDataSharingTestKit
 
     def_delegators 'self.class', :metadata
 
+    def all_scratch_resources
+      scratch_resources[:all]
+    end
+
     def perform_must_support_test(resources)
       skip_if resources.blank?, "No #{resource_type} resources were found"
 
@@ -185,7 +189,11 @@ module CancerPathologyDataSharingTestKit
           when 'String'
             element.is_a? String
           else
-            element.is_a? FHIR.const_get(discriminator[:code])
+            if element.is_a? FHIR::Bundle::Entry
+              element.resource.resourceType == discriminator[:code]
+            else
+              element.is_a? FHIR.const_get(discriminator[:code])
+            end
           end
         when 'requiredBinding'
           coding_path = discriminator[:path].present? ? "#{discriminator[:path]}.coding" : 'coding'

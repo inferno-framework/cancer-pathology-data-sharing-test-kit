@@ -1,0 +1,153 @@
+---
+:name: us_pathology_diagnostic_report
+:class_name: UsPathologyDiagnosticReportSequence
+:version: v1.0.1
+:reformatted_version: v101
+:resource: DiagnosticReport
+:profile_url: http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-diagnostic-report
+:profile_name: US Pathology Diagnostic Report
+:profile_version: 1.0.1
+:title: DiagnosticReport US Pathology Diagnostic Report
+:short_description: Verify support for the server capabilities required by the US
+  Pathology Diagnostic Report.
+:must_supports:
+  :extensions: []
+  :slices:
+  - :slice_id: DiagnosticReport.category:us-core
+    :slice_name: us-core
+    :path: category
+    :discriminator:
+      :type: requiredBinding
+      :path: ''
+      :values:
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: AU
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: BG
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: BLB
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CG
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CH
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CP
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CT
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CTH
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: CUS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: EC
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: EN
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: GE
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: HM
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: ICU
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: IMM
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: LAB
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: MB
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: MCB
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: MYC
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: NMR
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: NMS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: NRS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: OSL
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: OT
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: OTH
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: OUS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: PF
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: PHR
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: PHY
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: PT
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: RAD
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: RC
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: RT
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: RUS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: RX
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: SP
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: SR
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: TX
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: VR
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: VUS
+      - :system: http://terminology.hl7.org/CodeSystem/v2-0074
+        :code: XRC
+  :elements:
+  - :path: status
+  - :path: category
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: encounter
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
+  - :path: effectiveDateTime
+    :original_path: effective[x]
+  - :path: issued
+  - :path: performer
+    :types:
+    - Reference
+  - :path: resultsInterpreter
+    :types:
+    - Reference
+  - :path: specimen
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen
+  - :path: result
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-test
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-imaging
+  - :path: media
+  - :path: media.link
+    :types:
+    - Reference
+  - :path: presentedForm
+:mandatory_elements:
+- DiagnosticReport.status
+- DiagnosticReport.category
+- DiagnosticReport.code
+- DiagnosticReport.subject
+- DiagnosticReport.media.link
+:tests: []
+:id: v101_us_pathology_diagnostic_report
+:file_name: us_pathology_diagnostic_report_group.rb

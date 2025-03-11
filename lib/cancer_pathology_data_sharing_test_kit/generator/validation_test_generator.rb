@@ -63,7 +63,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def test_id
-        "ccrr_#{group_metadata.reformatted_version}_#{profile_identifier}_validation_test"
+        "#{group_metadata.reformatted_version}_#{profile_identifier}_validation_test"
       end
 
       def class_name
@@ -71,7 +71,7 @@ module CancerPathologyDataSharingTestKit
       end
 
       def module_name
-        "HDEA#{group_metadata.reformatted_version.upcase}"
+        "#{group_metadata.reformatted_version.upcase}"
       end
 
       def resource_type
@@ -118,12 +118,12 @@ module CancerPathologyDataSharingTestKit
       def description_intro
         if resource_type == 'Medication'
           <<~MEDICATION_INTRO
-          This test verifies resources returned from previous tests conform to
+          This test verifies resources from previous tests conform to
           the [#{profile_name}](#{profile_url}).
           MEDICATION_INTRO
         else
           <<~GENERIC_INTRO
-          This test verifies resources returned from the first search conform to
+          This test verifies resources from the first search conform to
           the [#{profile_name}](#{profile_url}).
           Systems must demonstrate at least one valid example in order to pass this test.
           GENERIC_INTRO

@@ -2,6 +2,7 @@ require 'inferno/dsl/oauth_credentials'
 
 require_relative 'version'
 require_relative 'report_generation_suite/exchange_bundle_group'
+require_relative 'data_absent_group'
 
 module CancerPathologyDataSharingTestKit
   class ReportGenerationSuite < Inferno::TestSuite
@@ -69,5 +70,7 @@ module CancerPathologyDataSharingTestKit
     type: 'textarea'
 
     group from: :exchange_bundle_group
+    group from: :cpds_data_absent_reason
+
   end
 end

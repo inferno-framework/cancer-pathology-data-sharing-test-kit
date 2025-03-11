@@ -26,15 +26,15 @@ module CancerPathologyDataSharingTestKit
       end
 
       def base_output_file_name
-        'hdea_suite.rb'
+        'cpds_ms_suite.rb'
       end
 
       def class_name
-        'HDEASuite'
+        'CPDSSuite'
       end
 
       def module_name
-        "CCRR#{ig_metadata.reformatted_version.upcase}"
+        "#{ig_metadata.reformatted_version.upcase}"
       end
 
       def output_file_name
@@ -42,20 +42,20 @@ module CancerPathologyDataSharingTestKit
       end
 
       def suite_id
-        "ccrr_#{ig_metadata.reformatted_version}"
+        "#{ig_metadata.reformatted_version}"
       end
 
       def fhir_api_group_id
-        "ccrr_#{ig_metadata.reformatted_version}_fhir_api"
+        "#{ig_metadata.reformatted_version}_fhir_api"
       end
 
       def title
-        "CCRR #{ig_metadata.ig_version}"
+        "#{ig_metadata.ig_version}"
       end
 
       def ig_identifier
         version = ig_metadata.ig_version[1..] # Remove leading 'v'
-        "ccrr##{version}"
+        "##{version}"
       end
 
       def ig_link
