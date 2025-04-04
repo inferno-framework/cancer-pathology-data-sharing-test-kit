@@ -45,7 +45,7 @@ module CancerPathologyDataSharingTestKit
         CodeSystem.
       )
       input :dar_code_found,
-            title: 'Data Absent Reason Extension Found',
+            title: 'Data Absent Reason CodeSystem Found',
             locked: true,
             optional: true,
             default: 'false'
