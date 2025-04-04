@@ -1,2 +1,3 @@
+require_relative 'cancer_pathology_data_sharing_test_kit/metadata'
 require_relative 'cancer_pathology_data_sharing_test_kit/us_core_data_access_suite'
 require_relative 'cancer_pathology_data_sharing_test_kit/report_generation_suite'

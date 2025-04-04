@@ -111,7 +111,7 @@
           "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <div class=\"hapiHeaderText\"> Pathology Synoptic report </div>\n            <table class=\"hapiPropertyTable\">\n                <tbody>\n                    <tr>\n                        <td>Status</td>\n                        <td>FINAL</td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>"
         },
         "identifier" : [{
-          "system" : "https://example.org",
+          "system" : "https://inferno.healthit.gov/example",
           "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1"
         }],
         "status" : "final",
@@ -149,98 +149,98 @@
         "result" : [{
           "reference" : "Observation/observation-tumor-site",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2118.100004300"
           }
         },
         {
           "reference" : "Observation/observation-procedure-adrenalectomy",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#42554.100004300"
           }
         },
         {
           "reference" : "Observation/observation-specimen-laterality",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#52756.100004300"
           }
         },
         {
           "reference" : "Observation/observation-histologic-type",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#59852.100004300"
           }
         },
         {
           "reference" : "Observation/observation-histologic-grade",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#49275.100004300"
           }
         },
         {
           "reference" : "Observation/observation-histologic-grade",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2129.100004300"
           }
         },
         {
           "reference" : "Observation/observation-tumor-weight",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#40496.100004300"
           }
         },
         {
           "reference" : "Observation/observation-tumor-extension",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.51265.100004300"
           }
         },
         {
           "reference" : "Observation/observation-tumor-invasion",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.53526.100004300"
           }
         },
         {
           "reference" : "Observation/observation-regional-lymph-nodes",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.1867.100004300"
           }
         },
         {
           "reference" : "Observation/observation-TNM-descriptors",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1.20880.100004300"
           }
         },
         {
           "reference" : "Observation/observation-primary-tumor",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2137.100004300"
           }
         },
         {
           "reference" : "Observation/observation-regional-lymph-nodes",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2143.100004300"
           }
         },
         {
           "reference" : "Observation/observation-distant-metastasis",
           "identifier" : {
-            "system" : "https://example.org",
+            "system" : "https://inferno.healthit.gov/example",
             "value" : "Adrenal.Bx.Res.129_3.002.011.RC1_sdcFDF3d1c4fe4-09c3-4a7e-877f-9ddb160da6db/ver1#2149.100004300"
           }
         }],
@@ -552,7 +552,7 @@
       }
     },
     {
-      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/ServiceRequest/service-request-example",
+      "fullUrl" : "http://hl7.org/fhir/us/cancer-reporting/ServiceRequest/cancer-path-example",
       "resource": {
         "resourceType" : "ServiceRequest",
         "id" : "cancer-path-example",
@@ -595,6 +595,10 @@
         "specimen" : [{
           "reference" : "Specimen/adrenal-example"
         }]
+      },
+      "request" : {
+        "method" : "POST",
+        "url" : "ServiceRequest/cancer-path-example"
       }
     }]
   }

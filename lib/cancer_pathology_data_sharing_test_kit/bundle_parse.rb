@@ -18,12 +18,11 @@ module CancerPathologyDataSharingTestKit
       'Specimen' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen',
       'ServiceRequest' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-service-request',
       'PractitionerRole' => 'http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-related-practitioner-role'
-    }
+    }.freeze
 
     def pe_bundle_resource_types
-      PE_BUNDLE_SLICE_RESOURCES.keys()
+      PE_BUNDLE_SLICE_RESOURCES.keys
     end
-
 
     # Method for translating received bundle into a hash of resources
     def parse_bundle(bundle)
@@ -32,15 +31,14 @@ module CancerPathologyDataSharingTestKit
       parsed_bundle ||= {}
       bundle.entry.each do |entry|
         current_resource = entry.resource
-        unless current_resource.is_a?(FHIR::Reference)
-          # Not a reference, then just add the resoure to parsed bundle
-          parsed_bundle[current_resource.resourceType] ||= []
-          info "Storing #{current_resource.id} at #{current_resource.resourceType}" if current_resource.resourceType == "Specimen"
-          parsed_bundle[current_resource.resourceType] << current_resource
-        end
+        next if current_resource.is_a?(FHIR::Reference)
+
+        # Not a reference, then just add the resoure to parsed bundle
+        parsed_bundle[current_resource.resourceType] ||= []
+        parsed_bundle[current_resource.resourceType] << current_resource
       end
 
-      return parsed_bundle
+      parsed_bundle
     end
 
     # Only returns the resources from the parsed bundle that match Pathology Exchange type

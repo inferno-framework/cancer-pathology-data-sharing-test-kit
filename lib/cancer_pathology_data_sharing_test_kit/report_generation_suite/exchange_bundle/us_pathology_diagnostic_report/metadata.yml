@@ -1,0 +1,77 @@
+---
+:name: us_pathology_diagnostic_report
+:class_name: UsPathologyDiagnosticReportSequence
+:version: v1.0.1
+:reformatted_version: v101
+:resource: DiagnosticReport
+:profile_url: http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-diagnostic-report
+:profile_name: US Pathology Diagnostic Report
+:profile_version: 1.0.1
+:title: DiagnosticReport US Pathology Diagnostic Report
+:short_description: Verify support for the server capabilities required by the US
+  Pathology Diagnostic Report.
+:must_supports:
+  :extensions: []
+  :slices:
+  - :slice_id: DiagnosticReport.category:us-core
+    :slice_name: us-core
+    :path: category
+    :discriminator:
+      :type: requiredBinding
+      :path: ''
+      :values:
+      - :system: http://loinc.org
+        :code: LP29684-5
+      - :system: http://loinc.org
+        :code: LP29708-2
+      - :system: http://loinc.org
+        :code: LP7839-6
+  :elements:
+  - :path: status
+  - :path: category
+  - :path: code
+  - :path: subject
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+  - :path: encounter
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
+  - :path: effectiveDateTime
+    :original_path: effective[x]
+  - :path: issued
+  - :path: performer
+    :types:
+    - Reference
+  - :path: resultsInterpreter
+    :types:
+    - Reference
+  - :path: specimen
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/cancer-reporting/StructureDefinition/us-pathology-specimen
+  - :path: result
+    :types:
+    - Reference
+    :target_profiles:
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-test
+    - http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-imaging
+  - :path: media
+  - :path: media.link
+    :types:
+    - Reference
+  - :path: presentedForm
+:mandatory_elements:
+- DiagnosticReport.status
+- DiagnosticReport.category
+- DiagnosticReport.code
+- DiagnosticReport.subject
+- DiagnosticReport.media.link
+:tests: []
+:id: v101_us_pathology_diagnostic_report
+:file_name: us_pathology_diagnostic_report_group.rb
