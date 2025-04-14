@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.description   = 'Inferno test kit for testing systems per the Cancer Pathology Data Sharing IG'
   spec.homepage      = 'https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/'
   spec.license       = 'Apache-2.0'
-  spec.add_dependency 'inferno_core', '~> 0.6.4'
-  spec.add_dependency 'us_core_test_kit'
+  spec.add_dependency 'inferno_core', '~> 0.6.8'
+  spec.add_dependency 'us_core_test_kit', '~> 0.11.1'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.3.6')
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
