@@ -1,6 +1,3 @@
-require 'inferno/dsl/oauth_credentials'
-
-require_relative 'version'
 require_relative 'report_generation_suite/exchange_bundle_group'
 
 module CancerPathologyDataSharingTestKit

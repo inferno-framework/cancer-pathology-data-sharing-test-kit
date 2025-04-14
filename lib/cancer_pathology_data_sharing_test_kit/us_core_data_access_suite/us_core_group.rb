@@ -1,4 +1,3 @@
-require 'inferno/dsl/oauth_credentials'
 require 'us_core_test_kit'
 
 module CancerPathologyDataSharingTestKit
@@ -16,12 +15,12 @@ module CancerPathologyDataSharingTestKit
 
     input :smart_credentials,
           title: 'OAuth Credentials',
-          type: :oauth_credentials,
+          type: :auth_info,
           optional: true
 
     fhir_client do
       url :url
-      oauth_credentials :smart_credentials
+      auth_info :smart_credentials
     end
 
     group from: :us_core_v501_capability_statement

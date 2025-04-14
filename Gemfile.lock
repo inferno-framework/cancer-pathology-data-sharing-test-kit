@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     cancer_pathology_data_sharing_test_kit (0.1.0)
-      inferno_core (~> 0.6.4)
-      us_core_test_kit
+      inferno_core (~> 0.6.8)
+      us_core_test_kit (~> 0.11.1)
 
 GEM
   remote: https://rubygems.org/
@@ -140,7 +140,7 @@ GEM
       mutex_m
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    inferno_core (0.6.6)
+    inferno_core (0.6.8)
       activesupport (~> 6.1.7.5)
       base62-rb (= 0.3.1)
       blueprinter (= 0.25.2)
@@ -309,8 +309,8 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.13.1)
     simplecov_json_formatter (0.1.4)
-    smart_app_launch_test_kit (0.5.1)
-      inferno_core (>= 0.6.2)
+    smart_app_launch_test_kit (0.6.1)
+      inferno_core (>= 0.6.3)
       json-jwt (~> 1.15.3)
       jwt (~> 2.6)
       tls_test_kit (~> 0.3.0)
@@ -342,9 +342,9 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
     unicode_utils (1.4.0)
-    us_core_test_kit (0.10.1)
-      inferno_core (>= 0.6.4)
-      smart_app_launch_test_kit (>= 0.5.0)
+    us_core_test_kit (0.11.1)
+      inferno_core (>= 0.6.8)
+      smart_app_launch_test_kit (>= 0.6.1)
       tls_test_kit (~> 0.3.0)
     webmock (3.24.0)
       addressable (>= 2.8.0)
