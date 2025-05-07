@@ -1,7 +1,11 @@
+require 'inferno/dsl/oauth_credentials'
+require_relative 'urls'
+require_relative 'version'
 require_relative 'report_generation_suite/exchange_bundle_group'
 
 module CancerPathologyDataSharingTestKit
   class ReportGenerationSuite < Inferno::TestSuite
+    include URLs
     id :cpds_report_generation
     title 'Cancer Pathology Data Sharing Report Generation Test Suite'
     short_title 'CPDS Report Generation Test Suite'
@@ -49,6 +53,13 @@ module CancerPathologyDataSharingTestKit
       perform_additional_validation do |resource, _profile_url|
         ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
       end
+    end
+
+    resume_test_route :get, RESUME_PASS_PATH do |request|
+      request.query_parameters['token']
+    end
+    resume_test_route :get, RESUME_FAIL_PATH, result: 'fail' do |request|
+      request.query_parameters['token']
     end
 
     input :reports,

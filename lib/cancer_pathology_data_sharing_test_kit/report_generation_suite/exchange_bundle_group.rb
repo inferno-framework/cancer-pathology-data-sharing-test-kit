@@ -14,7 +14,7 @@ require_relative 'exchange_bundle/specimen/specimen_must_support_test'
 require_relative 'exchange_bundle/service_request/service_request_must_support_test'
 require_relative 'exchange_bundle/practitioner_role/practitioner_role_must_support_test'
 
-require_relative '../data_absent_group'
+require_relative 'data_absent_group'
 
 module CancerPathologyDataSharingTestKit
   class ExchangeBundleGroup < Inferno::TestGroup
@@ -99,7 +99,6 @@ module CancerPathologyDataSharingTestKit
       test from: :cpds_practitioner_role_validation_test
       test from: :cpds_v101_practitioner_role_must_support_test
     end
-
     group from: :cpds_data_absent_reason
   end
 end
