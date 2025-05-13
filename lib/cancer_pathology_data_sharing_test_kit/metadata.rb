@@ -3,7 +3,7 @@ require_relative 'version'
 module CancerPathologyDataSharingTestKit
   class Metadata < Inferno::TestKit
     id :cancer_pathology_data_sharing_test_kit
-    title 'Cancer Pathology Data Sharing IG Test Kit'
+    title 'Cancer Pathology Data Sharing Test Kit'
     description <<~DESCRIPTION
 
       The Cancer Pathology Data Sharing (CPDS) Test Kit is a testing tool for Health IT systems
