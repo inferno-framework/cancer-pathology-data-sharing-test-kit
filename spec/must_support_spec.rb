@@ -1,5 +1,6 @@
 RSpec.describe CancerPathologyDataSharingTestKit::MustSupportTest do # rubocop:disable RSpec/SpecFilePathFormat
-  let(:suite) { Inferno::Repositories::TestSuites.new.find('cpds_report_generation') }
+  let(:suite_id) { 'cpds_report_generation' }
+  let(:suite) { Inferno::Repositories::TestSuites.new.find(suite_id) }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
   let(:runner) { Inferno::TestRunner.new(test_session: test_session, test_run: test_run) }
   let(:test_session) do
@@ -8,14 +9,8 @@ RSpec.describe CancerPathologyDataSharingTestKit::MustSupportTest do # rubocop:d
   let(:request_repo) { Inferno::Repositories::Requests.new }
   let(:group) { suite.groups.find { |g| g.id.include?('exchange_bundle_group') } }
 
-  def run(runnable, inputs = {})
-    test_run_params = { test_session_id: test_session.id }.merge(runnable.reference_hash)
-    test_run = Inferno::Repositories::TestRuns.new.create(test_run_params)
-    inputs.each do |name, value|
-      session_data_repo.save(test_session_id: test_session.id, name: name, value: value, type: 'textarea')
-    end
-    Inferno::TestRunner.new(test_session: test_session, test_run: test_run).run(runnable)
-  end
+  # Required explicitly here because MustSupportTest is a module and not Inferno::DSL::Runnable
+  include_context 'when testing a runnable'
 
   describe 'must_support_test' do
     let(:test) do
