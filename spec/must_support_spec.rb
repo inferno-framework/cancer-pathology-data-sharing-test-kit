@@ -1,16 +1,7 @@
 RSpec.describe CancerPathologyDataSharingTestKit::MustSupportTest, :runnable do # rubocop:disable RSpec/SpecFilePathFormat
   let(:suite_id) { 'cpds_report_generation' }
   let(:suite) { Inferno::Repositories::TestSuites.new.find(suite_id) }
-  let(:session_data_repo) { Inferno::Repositories::SessionData.new }
-  let(:runner) { Inferno::TestRunner.new(test_session: test_session, test_run: test_run) }
-  let(:test_session) do
-    Inferno::Repositories::TestSessions.new.create(test_suite_id: suite.id)
-  end
-  let(:request_repo) { Inferno::Repositories::Requests.new }
   let(:group) { suite.groups.find { |g| g.id.include?('exchange_bundle_group') } }
-
-  # Required explicitly here because MustSupportTest is a module and not Inferno::DSL::Runnable
-  include_context 'when testing a runnable'
 
   describe 'must_support_test' do
     let(:test) do
