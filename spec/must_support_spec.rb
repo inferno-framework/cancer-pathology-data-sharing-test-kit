@@ -1,4 +1,4 @@
-RSpec.describe CancerPathologyDataSharingTestKit::MustSupportTest do # rubocop:disable RSpec/SpecFilePathFormat
+RSpec.describe CancerPathologyDataSharingTestKit::MustSupportTest, :runnable do # rubocop:disable RSpec/SpecFilePathFormat
   let(:suite_id) { 'cpds_report_generation' }
   let(:suite) { Inferno::Repositories::TestSuites.new.find(suite_id) }
   let(:session_data_repo) { Inferno::Repositories::SessionData.new }
