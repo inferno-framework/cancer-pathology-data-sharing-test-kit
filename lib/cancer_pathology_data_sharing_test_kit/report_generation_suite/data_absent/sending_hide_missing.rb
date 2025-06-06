@@ -3,9 +3,26 @@ module CancerPathologyDataSharingTestKit
     id :cpds_data_absent_sending_hide_missing
     title 'Sender does not send data element(s) with missing information'
     description %(
-        In situations where information on a particular data element is not present, the Sender SHALL NOT include the data element
-       in the resource instance if the cardinality is 0..n.
-      )
+      The CPDS IG provides specific guidance for handling optional data elements (those with cardinality 0..n)
+      when the information is not available. This requirement helps reduce message size and processing overhead
+      while maintaining semantic clarity.
+
+      Key Requirements:
+      * When information for an optional data element is not available, the Sender SHALL NOT include
+        the empty element in the resource instance
+      * This applies only to elements with cardinality 0..n (optional elements)
+      * For required elements (cardinality 1..n or 1..1), use the appropriate missing data pattern instead:
+        * DataAbsentReason Extension for non-coded fields
+        * "Unknown" codes from value sets for coded fields
+
+      Examples:
+      * DO NOT include an empty 'note' element if there are no notes
+      * DO NOT include an empty 'identifier' array if there are no identifiers
+      * DO NOT include null or empty string values in optional elements
+
+      This test verifies that the system correctly omits optional elements when their data is not available,
+      rather than including them with empty or null values.
+    )
 
     run do
       identifier = SecureRandom.hex(32)

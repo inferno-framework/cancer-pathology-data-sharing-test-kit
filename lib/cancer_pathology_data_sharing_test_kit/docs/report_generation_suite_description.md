@@ -1,13 +1,13 @@
 ## Overview
-The Cancer Pathology Data Sharing Report Generation Test Suite verifies the conformance of clinical systems,
-including laboratory information systems (LISs) & electronic health records (EHRs) to the report generation
-requirements in the STU 1.0.1 version of the HL7® FHIR® 
-[Cancer Pathology Data Sharing (CPDS) IG](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/).
+The Cancer Pathology Data Sharing Report Generation Test Suite validates that clinical systems (Laboratory Information Systems and Electronic Health Records) can create pathology reports that conform to the STU 1.0.1 version of the HL7® FHIR® [Cancer Pathology Data Sharing (CPDS) IG](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/). This suite ensures systems can properly structure and encode pathology data for cancer registry reporting.
 
 ## Scope
-This test suite focuses on the report creation portion of a system's role in submitting pathology reports to
-central cancer registries. Specifically, these tests verify that a system can produce a set of comformant
-and complete [Pathology Cancer Exchange Bundle(s)](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/StructureDefinition-us-pathology-exchange-bundle.html). 
+This test suite validates the creation of standardized pathology reports for cancer registry submission. It verifies that systems can generate [Pathology Cancer Exchange Bundles](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/StructureDefinition-us-pathology-exchange-bundle.html) that include all required components:
+- Patient demographics (US Core Patient)
+- Encounter details (US Core Encounter)
+- Diagnostic findings (US Pathology Diagnostic Report)
+- Specimen information (US Pathology Specimen)
+- Service requests and practitioner details
 
 The IG defines other capabilities of clinical systems that are currently out of scope for this suite, including:
 - The gathering of report content from other systems, if necessary.

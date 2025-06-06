@@ -1,16 +1,14 @@
 ## Overview
-
-The Cancer Pathology Data Sharing (CPDS) Data Access Test Suite verifies the ability of
-clinical systems to make [US Core](http://hl7.org/fhir/us/core/STU5.0.1/)
-data accessible to other systems per the
-STU 1.0.1 version of the HL7® FHIR® [Cancer Pathology Data Sharing IG](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/).
+The Cancer Pathology Data Sharing (CPDS) Data Access Test Suite validates that clinical systems implement the required FHIR APIs for sharing cancer pathology data as specified in the STU 1.0.1 version of the [Cancer Pathology Data Sharing IG](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/). This suite ensures systems can properly expose standardized pathology data through [US Core](http://hl7.org/fhir/us/core/STU5.0.1/) APIs.
 
 ## Scope
+The CPDS IG mandates specific API capabilities for both [Laboratory Information Systems (LIS)](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/CapabilityStatement-pathology-lab-information-system.html) and [Electronic Health Records (EHR)](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/CapabilityStatement-central-cancer-registry-reporting-ehr-pathology.html). This test suite validates:
 
-The CPDS IG requires that both [Laboratory Information System (LIS)](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/CapabilityStatement-pathology-lab-information-system.html)
-and [Electronic Health Record (EHR)](https://hl7.org/fhir/us/cancer-reporting/STU1.0.1/CapabilityStatement-central-cancer-registry-reporting-ehr-pathology.html) 
-systems support "searching and retrieval of resources using US Core APIs". This test suite
-verifies that a system exposes the full list of US Core v5 APIs and profiles.
+- Implementation of US Core STU 5 search and read operations
+- Support for required search parameters and combinations
+- Proper population of must-support elements
+- Correct profile conformance for returned resources
+- Resolution of referenced resources
 
 Other capabilities that the CPDS IG requires of these systems are currently out of scope
 for this test suite, including
