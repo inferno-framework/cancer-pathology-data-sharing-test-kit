@@ -1,5 +1,6 @@
 # 0.10.1
 * FI-4162: Requirements Conversion by @karlnaden in https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/pull/9
+* Updates to descriptions by @rpassas in https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/pull/6
 
 # 0.10.0
 * FI-3815 - Update Test Kit with new RSpec features by @Shaumik-Ashraf in https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/pull/5

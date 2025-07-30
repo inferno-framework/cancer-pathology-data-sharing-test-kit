@@ -393,7 +393,7 @@ DEPENDENCIES
   rack-test
   rspec (~> 3.10)
   rspec_junit_formatter
-  rubocop (= 1.74.0)
+  rubocop (~> 1.9)
   rubocop-rspec
   simplecov (= 0.21.2)
   webmock (~> 3.11)
