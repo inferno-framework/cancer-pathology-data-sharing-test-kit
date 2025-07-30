@@ -29,6 +29,14 @@ module CancerPathologyDataSharingTestKit
       }
     ]
 
+    requirement_sets(
+      {
+        identifier: 'hl7.fhir.us.cancer-reporting_1.0.1',
+        title: 'Cancer Pathology Data Sharing IG STU 1.0.1',
+        actor: 'Report Creator'
+      }
+    )
+
     GENERAL_MESSAGE_FILTERS = [
       %r{Sub-extension url 'introspect' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
       %r{Sub-extension url 'revoke' is not defined by the Extension http://fhir-registry\.smarthealthit\.org/StructureDefinition/oauth-uris},
