@@ -9,7 +9,6 @@ AllCops:
     - Gemfile
     - inferno_template.gemspec
     - vendor/**/*
-    - lib/inferno_requirements_tools/**/*
 
 Layout/LineLength:
   Max: 150
