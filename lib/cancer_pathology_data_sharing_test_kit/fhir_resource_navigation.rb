@@ -45,14 +45,14 @@ module CancerPathologyDataSharingTestKit
         .gsub('[x]:', ':')
         .to_sym
       no_elements_present =
-        elements.none? do |element| # rubocop:disable Lint/ShadowingOuterLocalVariable
+        elements.none? do |element|
           child = get_next_value(element, segment)
           child.present? || child == false
         end
       return nil if no_elements_present
 
       remaining_path = path_segments.join('.')
-      elements.each do |element| # rubocop:disable Lint/ShadowingOuterLocalVariable
+      elements.each do |element|
         child = get_next_value(element, segment)
         element_found =
           if block_given?

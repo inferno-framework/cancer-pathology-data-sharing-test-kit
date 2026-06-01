@@ -42,7 +42,7 @@ module CancerPathologyDataSharingTestKit
       end
     end
 
-    def is_any_choice_supported?(choices) # rubocop:disable Metrics/CyclomaticComplexity,Naming/PredicateName
+    def is_any_choice_supported?(choices) # rubocop:disable Metrics/CyclomaticComplexity,Naming/PredicatePrefix
       choices.present? &&
         (
           choices[:paths]&.any? { |path| missing_elements.none? { |element| element[:path] == path } } ||

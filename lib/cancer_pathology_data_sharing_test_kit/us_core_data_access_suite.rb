@@ -59,6 +59,10 @@ module CancerPathologyDataSharingTestKit
       perform_additional_validation do |resource, _profile_url|
         USCoreTestKit::ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
       end
+
+      validation_context do
+        snomedCT '731000124108' # explicit snomedCT expansion parameter
+      end
     end
 
     group from: :cpds_us_core_data_access
