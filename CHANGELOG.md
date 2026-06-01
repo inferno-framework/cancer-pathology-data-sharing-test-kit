@@ -1,3 +1,6 @@
+# 0.10.2
+* Add snomedCT to FHIR validator context to support validator version 1.0.78
+
 # 0.10.1
 * FI-4162: Requirements Conversion by @karlnaden in https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/pull/9
 * Updates to descriptions by @rpassas in https://github.com/inferno-framework/cancer-pathology-data-sharing-test-kit/pull/6
