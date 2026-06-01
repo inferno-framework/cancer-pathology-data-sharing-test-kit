@@ -49,13 +49,13 @@ module CancerPathologyDataSharingTestKit
         id: id,
         file_name: file_name
       }
-      self.tests << test_metadata
+      tests << test_metadata
     end
 
     def add_granular_scope_test(id:, file_name:)
       self.granular_scope_tests ||= []
 
-      self.granular_scope_tests << {
+      granular_scope_tests << {
         id:,
         file_name:
       }

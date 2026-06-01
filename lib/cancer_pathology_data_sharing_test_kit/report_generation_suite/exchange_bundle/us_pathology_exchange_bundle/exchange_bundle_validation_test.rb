@@ -7,6 +7,7 @@ module CancerPathologyDataSharingTestKit
   class ContentBundleValidationTest < Inferno::Test
     include CancerPathologyDataSharingTestKit::ValidationTest
     include CancerPathologyDataSharingTestKit::BundleParse
+
     title 'Provided Bundle resources conform to the US Pathology Exchange Bundle Profile'
     id :cpds_exchange_bundle_validation_test
 
