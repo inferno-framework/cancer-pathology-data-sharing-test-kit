@@ -6,6 +6,7 @@ require_relative 'report_generation_suite/exchange_bundle_group'
 module CancerPathologyDataSharingTestKit
   class ReportGenerationSuite < Inferno::TestSuite
     include URLs
+
     id :cpds_report_generation
     title 'Cancer Pathology Data Sharing Report Generation Test Suite'
     short_title 'CPDS Report Generation Test Suite'
@@ -60,6 +61,10 @@ module CancerPathologyDataSharingTestKit
 
       perform_additional_validation do |resource, _profile_url|
         ProvenanceValidator.validate(resource) if resource.instance_of?(FHIR::Provenance)
+      end
+
+      validation_context do
+        snomedCT '731000124108' # explicit snomedCT expansion parameter
       end
     end
 
